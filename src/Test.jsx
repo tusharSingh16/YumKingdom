@@ -12,16 +12,13 @@ function Test() {
       const res = await axios.get('https://api.spoonacular.com/recipes/complexSearch?apiKey=c9cd476d6c3d46aea6c2584dc887490c&query=dumplings&number=10')
        console.log(res)
       setMyData(res.data.results);
-      console.log(Mydata);
-     
-      
-    } 
+      } 
     catch (error) {
       console.log(error);
     }
       
       
-  },[Mydata,setMyData])
+  },[])
   
   useEffect(() => {
     getApiData();
@@ -29,6 +26,8 @@ function Test() {
   
 
   return (
+    <>
+    <h4>Our random picks!!!</h4>
    <div className='cardcontainer' >
      
     {Mydata?.map((post) =>  {
@@ -43,6 +42,7 @@ function Test() {
                 )
     } 
     </div>
+    </>
  
     
 
